@@ -1,0 +1,17 @@
+@import url('style.css');
+
+ul#profile_information {
+	list-style: none;
+}
+
+ul#profile_information > li > span {
+	font-weight: bold;
+}
+
+#sidebar ul#profile_information > li > span {
+	font-weight: normal;
+}
+
+ul#profile_information > li > ul {
+	margin-left: 2em;
+}

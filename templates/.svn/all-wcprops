@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/pyq/!svn/ver/115/templates
+END
+post_new.html
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/pyq/!svn/ver/115/templates/post_new.html
+END
+user_profile.html
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/pyq/!svn/ver/112/templates/user_profile.html
+END
+live.html
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/pyq/!svn/ver/79/templates/live.html
+END
+askquestion.html
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/pyq/!svn/ver/89/templates/askquestion.html
+END
+question.html
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/pyq/!svn/ver/111/templates/question.html
+END
+registration.html
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/pyq/!svn/ver/66/templates/registration.html
+END
+master.html
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/pyq/!svn/ver/114/templates/master.html
+END

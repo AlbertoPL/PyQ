@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/pyq/!svn/ver/99/templates/registration
+END
+registration_form.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/pyq/!svn/ver/99/templates/registration/registration_form.html
+END
+activate.html
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pyq/!svn/ver/99/templates/registration/activate.html
+END
+activation_email_subject.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/pyq/!svn/ver/99/templates/registration/activation_email_subject.txt
+END
+registration_complete.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/pyq/!svn/ver/99/templates/registration/registration_complete.html
+END
+activation_email.txt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/pyq/!svn/ver/99/templates/registration/activation_email.txt
+END

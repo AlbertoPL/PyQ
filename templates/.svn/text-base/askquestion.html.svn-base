@@ -1,0 +1,9 @@
+{% extends "post_new.html" %}
+
+{% block title %}Ask a Question{% endblock %}
+
+{% block form_url %}{% url PyQ.pyq.topic_view.post_topic %}{% endblock %}
+
+{% block section_title %}Ask a Question{% endblock %}
+
+{% block submit_button_text %}Ask Question{% endblock %}

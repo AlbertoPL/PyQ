@@ -1,0 +1,9 @@
+@import url('style.css');
+
+#post_form > div {
+	margin: 1em 0;
+}
+
+#post_body {
+	width: 100%;
+}

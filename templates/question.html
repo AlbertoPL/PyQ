@@ -1,0 +1,155 @@
+{% extends "master.html" %}
+
+{% load markup %}
+{% block title %}{{ post_title }}{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="/media/wmd/showdown.js"></script>
+<script type="text/javascript" src="/media/js/question.js"></script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/media/wmd/wmd.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/question.css" media="screen" />
+{% endblock %}
+
+{% block live_active %}active{% endblock %}
+
+{% block page_button %}
+	  				<ul>
+	  					<li>
+	  						<a class="button ui-corner-all" href="/question/" title="Click here to ask a live question">
+	  							Ask Question</a>
+	  					</li>
+	  				</ul>
+{% endblock %}
+
+{% block content %}
+	<div id="section_title">
+		<h2>
+			<a href="/question/{{ post_id }}" title="Permalink">
+				{{ post_title }}
+			</a>
+		</h2>
+	</div>
+  	<div class="ui-widget-content ui-corner-all">
+  		<div id="question" class="markdown">
+  			<div class="post">
+  				<div class="post_text">{{ post_text|markdown }}</div>
+  				<div class="modify">
+					<a class="edit" href="/question/{{ post_id }}/" title="Click here to delete this answer">
+						Edit</a>
+					<a class="delete" href="/question/{{ post_id }}/" title="Click here to delete this answer">
+						Delete</a>
+				</div>
+			</div>
+			<form class="post_edit">
+				<textarea name="post_text" class="edit_textarea" rows="15"></textarea>
+				<div>
+					<a href="/question/{{ post_id }}/" class="button ui-corner-all">Submit Edit</a>
+				</div>
+			</form>
+  		</div>
+  		<div class="response_container">
+  			<ul>
+  				{% for comment in post_comments %}
+  				<li class="comment">
+  					<a rel="comment" class="delete" href="/comment/{{ comment.id }}/" title="Click here to delete this comment">
+  					X</a>
+  					<span class="comment_username">{{ comment.parent.user_posted.username }}</span>:
+  					{{ comment.parent.text }}
+  				</li>
+  				{% endfor %}
+  			</ul>
+  			<form class="response_form" action="/question/{{ post_id }}/comment/" method="post">
+      			<div>
+      				<textarea name="text" cols="40" rows="3"></textarea>
+      			</div>
+      			<a href='/question/{{ post_id }}/comment/' class='button response_button ui-corner-all'> Post Comment</a>
+      		</form>
+  			<a href="#" class="response_link" title="Click here to comment on this question">
+  				Add Comment</a>
+  		</div>
+  	</div>
+  	<div id="answers_title">
+		<h3>
+			<span class="answer_count">{{ post_replies|length }}</span> Answer{% if not post_replies|length_is:"1" %}s{% endif %}
+		</h3>
+	</div>
+	<div id="answer_group">
+		<ul>
+			{% for reply in post_replies %}
+			<li class="answer_container">
+				<div class="answer markdown">
+					<div class="post">
+						<div class="ballot_box">
+				  			<div>
+				  				<a class="upvote" href="/reply/{{ reply.id }}/vote/" title="Vote up">
+				  					<img alt="Vote up" src="/media/images/up-arrow.jpg"/>
+				  				</a>
+				  			</div>
+				  			<div class="vote_count">{{ reply.vote_count }}</div>
+				  			<div>
+				  				<a class="downvote" href="/reply/{{ reply.id }}/vote/" title="Vote down">
+									<img alt="Vote down" src="/media/images/down-arrow.jpg"/>
+								</a>
+				  			</div>
+				  		</div>
+	      				<div class="post_text">{{ reply.parent.text|markdown }}</div>
+				  		<div class="user_info">
+							<span class="username">{{ reply.parent.user_posted.username }}</span>:
+							<span class="timestamp">{{ reply.parent.timestamp|date:"Y-m-d H:i:s" }}</span>
+	      				</div>
+    					<div class="modify">
+    						<a class="edit" href="/reply/{{ reply.id }}/" title="Click here to delete this answer">
+		    					Edit</a>
+    						<a class="delete" href="/reply/{{ reply.id }}/" title="Click here to delete this answer">
+		    					Delete</a>
+		    			</div>
+    				</div>
+					<form class="post_edit">
+						<textarea name="text" class="edit_textarea" rows="15"></textarea>
+						<div>
+							<a href="/reply/{{ reply.id }}/" class="button ui-corner-all">Submit Edit</a>
+						</div>
+					</form>
+				</div>
+				<div class="response_container">
+	      			<ul>
+	      				{% for comment in reply.parent.comment_post.all %}
+		      			<li class="comment">
+		      				<a rel="comment" class="delete" href="/comment/{{ comment.id }}" title="Click here to delete this comment">
+  							X</a>
+		      				<span class="comment_username">{{ comment.parent.user_posted.username }}</span>:
+		      				{{ comment.parent.text}}		
+		      			</li>
+		      			{% endfor %}
+	      			</ul>
+	      			<form class="response_form" action="/reply/{{ reply.id }}/comment/" method="post">
+	      				<div>
+	      					<textarea name="text" cols="40" rows="3"></textarea>
+	      				</div>
+	      				<a href='#' class='button response_button ui-corner-all'> Post Comment</a>
+	      			</form>
+	      			<a href="#" class="response_link" title="Click here to comment on this answer">
+	      				Add Comment</a>
+	      		</div>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div id="user_answer">
+		<form class="answer_form" action="/question/{{ post_id }}/reply/" method="post">
+      <input type="hidden" name="type" value="answer"/>
+      <div>
+				<div id="wmd-button-bar" class="wmd-panel"></div>
+      	<textarea name="text" id="wmd-input" class="wmd-panel"></textarea>
+				<h4 id="answer_preview">Answer Preview</h4>
+      	<div id="wmd-preview" class="wmd-panel markdown"></div>
+      </div>
+      <a href="#" class="button ui-corner-all" id="post_answer_button" title="Post your answer">
+  			Post Answer</a>
+     </form>
+	</div>
+<script type="text/javascript" src="/media/wmd/wmd.js"></script>
+{% endblock %}

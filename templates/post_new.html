@@ -1,0 +1,36 @@
+{% extends "master.html" %}
+
+{% block title %}Post Something New{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/media/css/post.css" media="screen" />
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="/media/js/question.js"></script>
+<script type="text/javascript" src="/media/js/post_submit.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="section_title">
+		<h2>{% block section_title %}Post Something New{% endblock %}</h2>
+	</div>
+	<form id="post_form" method="post" action="{% block form_url %}{% endblock %}">
+		<div>
+			<h4><label for="post_title">Title</label></h4>
+			<input type="text" size="83" id="post_title" name="post_title"/>
+		</div>
+		<div>
+			<h4><label for="post_body">Body</label></h4>
+			<textarea name="post_body" id="post_body" rows="20"></textarea>
+		</div>
+		<div>
+			<h4><label for="post_tags">Tags</label></h4>
+			<input type="text" size="83" id="post_tags" name="post_tags"/>
+		</div>
+		<input type="hidden" name="id" value="{{ id }}">
+		<input type="submit" value="submit" style="display:none;"/>
+		<a id="submit_button" class="button ui-corner-all" href="#" title="Click here to submit your question">
+	  		{% block submit_button_text %}Post It Now{% endblock %}</a>
+	</form>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "master.html" %}
+
+{% block css %}
+<link rel="stylesheet" media="screen" href="/media/css/user_profile.css"/>
+{% endblock %}
+
+{% block content %}
+<div id="section_title">
+	<h2>{{ user.username }}</h2>
+</div>
+<ul id="profile_information">
+	{% if user.first_name or user.last_name %}
+	<li>
+		<span>Real name:</span> {{ user.first_name }} {{ user.last_name }}
+	</li>
+	{% endif %}
+	{% if user.email %}
+	<li>
+		<span>Email:</span> {{ user.email }}
+	</li>
+	{% endif %}
+	<li>
+		<span>Date joined:</span> {{ user.date_joined }}
+	</li>
+	<li>
+		<span>Last login:</span> {{ user.last_login }}
+	</li>
+	{% if user.bio %}
+	<li>
+		<span>Bio:</span> {{ user.bio }}
+	</li>
+	{% endif %}
+	<li>
+		<span>Contributions:</span>
+		<ul>
+			<li>
+	  		{{ profile.num_posts }} Posts
+	  	</li>
+			<li>
+				{{ profile.num_replies }} Replies
+			</li>
+			<li>
+				{{ profile.num_comments }} Comments
+			</li>
+		</ul>
+	</li>
+</ul>
+{% endblock %}

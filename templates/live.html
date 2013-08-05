@@ -1,0 +1,38 @@
+{% extends "master.html" %}
+
+{% block title %}Live Questions{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/media/css/question.css" media="screen" />
+{% endblock %}
+
+{% block live_active %}active{% endblock %}
+
+{% block page_button %}
+	  				<ul>
+	  					<li>
+	  						<a class="button ui-corner-all" href="/question/" title="Action Button">
+	  							Ask Question</a>
+	  					</li>
+	  				</ul>
+{% endblock %}
+
+{% block content %}
+	<div id="section_title">
+		<h2>All Questions</h2>
+	</div>
+	{% for topic in topics.object_list %}
+	<div class="excerpt ui-widget-content ui-corner-all">
+		<h3>
+			<a href="/question/{{ topic.id }}" title="Click here to answer the question">
+				{{ topic.title }}
+			</a>	
+		</h3>
+		<div>
+			{{ topic.parent.text|slice:"0:80" }}
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+{% endblock %}

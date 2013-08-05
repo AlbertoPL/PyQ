@@ -1,0 +1,60 @@
+\documentclass{report}
+\title{Vision And Scope Document For PyQ}
+\author{Prepared by Alberto Pareja-Lecaros} 
+\date{June 18 2009}
+
+\begin{document}  \maketitle
+  \pagebreak
+  \renewcommand{\thesection}{\arabic{section}}
+  \renewcommand{\contentsname}{Table of Contents}
+  \tableofcontents 
+    \setcounter{tocdepth}{1}
+    \section*{Revision History}    \begin{center}
+      \begin{tabular}{ | l || c || c || r | }
+      \hline
+      \textbf{Name} & \textbf{Date} & \textbf{Reason For Changes} & \textbf{Version} \\ 
+      \hline \hline
+      Alberto Pareja-Lecaros & 06/18/2009 & Initial Revision & 1.0 \\ \hline
+      \hline
+      \end{tabular}
+    \end{center}
+  \section{Business Requirements}
+    \subsection{Background}
+The (Society of Software Engineers) SSE  possesses a physical bank of questions that may be similar to the types of questions expected in a variety of classes. The goal of PyQ will be to provide this question bank, as well as potential answers to questions, online so that SSE members can view the questions from their computers without needing to be in the lab. Because the SSE will be releasing an information system that is tied to their main site, we would like to provide this system as a web service that interacts with their site.
+    \subsection{Business Opportunity}
+With the current system, SSE members must be in the lab when looking at the question bank. If the lab is closed, then there is no way for these materials to be accessed unless the member has lab access. This service has the potential of expanding the current question bank so that it may be used at all times by privileged members.
+    \subsection{Business Objectives and Success Criteria}      \textit{N/A}
+    \subsection{Customer or Market Needs}SSE members require a way to use SSE lab materials while not in the lab, which is especially useful for when the lab closes (atypically at 6, nevertheless it's suppose to close at that time), or during the summer when the lab is closed off completely.
+    \subsection{Business Risks}      \textit{N/A}  \section{Vision of the Solution}
+    \subsection{Vision Statement}
+Our vision for this web service will be to provide additional usefulness to being a member of the SSE by allowing near 24/7 access to a collective bank of questions and answers as contributed by the SSE community. We in turn hope that this will bring additional use to the site and makes hosting the SSE website more worthwhile.
+    \subsection{Major Features}
+      \textit{See section 3.1}
+    \subsection{Assumptions and Dependencies}
+We assume that SSEIS (Society of Software Engineers Information System) will be functional and will be able to provide an XML of users to our specified schema, however because the system accepts XML's, it is not entirely dependent on SSEIS being functional.
+  \section{Scope and Limitations}
+    \subsection{Scope of Initial Release}
+Users with various permissions
+Ability to post questions with tags
+Ability to answers questions
+Easy to use display of questions and answers
+    \subsection{Scope of Subsequent Releases}
+      \textit{N/A}
+    \subsection{Limitations and Exclusions}
+The site will not become a forum and will not have any sections for miscellaneous questions. The questions should be pertinent to RIT courses.
+There are no plans to have the site be a social networking site; again, the main purpose is to be able to look up questions and answers as well as to be able to contribute new questions and answers.
+  \section{Business Context}
+    \subsection{Stakeholder Profiles}
+      \begin{tabular}{ | p{0.8in} | p{1in} | p{1in} | p{1.2in} | p{0.8in} | }
+        \hline
+        \textbf{Stakeholder} & \textbf{Major Value} & \textbf{Attitudes} & \textbf{Major Interests} & \textbf{Constraints} \\ 
+        \hline \hline
+SSE & Increased member cohesion, increased usability of SSE site & Carefree, and would be excited to have such a service & A functional question bank for members to use & none \\ \hline
+        \hline
+      \end{tabular}
+      \subsection{Project Priorities}
+      \textit{N/A}
+    \subsection{Operating Environment}
+The system is expected to be used by home users from wherever they might be. No performance or special security requirements are needed past basic user permissions. Up time is determinant on the system the service will run on, which will probably be the Pancake server hosted by the SSE.
+	 
+\end{document} 

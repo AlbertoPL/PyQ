@@ -1,0 +1,79 @@
+\documentclass{report}
+\title{Software Requirements Specification For PyQ}
+\author{George W. Adams IV, Thomas Owens, Alberto Pareja-Lecaros} 
+\date{June 19 2009}
+
+\begin{document}
+\maketitle
+\pagebreak
+  \renewcommand{\thesection}{\arabic{section}}
+  \renewcommand{\contentsname}{Table of Contents}
+  \tableofcontents 
+    \setcounter{tocdepth}{1}
+  \section*{Revision History}    
+  \begin{center}
+    \begin{tabular}{ | c || c || c || c | }
+      \hline
+      \textbf{Name} & \textbf{Date} & \textbf{Reason For Changes} & \textbf{Version} \\ 
+      \hline \hline
+      Alberto Pareja-Lecaros & 06/19/2009 & Initial Revision & 1.0 \\ \hline
+      \hline
+    \end{tabular}
+  \end{center}
+  \section{Introduction}
+  \subsection{Purpose}
+   This document describes the initial PyQ and its features. A full description eventually be obtained from this document, including the common user interfaces. Because the design of PyQ will be modular, it is not specific to a single interface and thus will only discuss common attributes across any interface.
+   \subsection{Document Conventions}
+   The requirements specified will try to maintain some sort of order, although this is not a guarantee. As a convention, this document will be fully written in \LaTeXe.
+   \subsection{Intended Audience and Reading Suggestions}
+   \textit{N/A}
+   \subsection{Project Scope}
+   See \textit{VisionAndScope.tex}
+   \subsection{References}
+   Other references may show up here in the future.
+  \section{Overall Description}
+   \subsection{Product Perspective}
+   PyQ is meant to be an interface which allows users to post topics and to post replies to topics, all while allowing different levels of moderation. This system then acts as a backbone for many potential systems.
+   \subsection{Product Features}
+   Hierarchy of users - give different users different permissions while allowing all users to keep certain basic permissions
+   Topic posting - users can post topics to which other members or the posters themselves respond to. There can be different categories of topics based on the system's needs
+   Moderating users - administrators can manage those who can use the system
+   Voting on posts - users can vote posts up or down
+   Commenting on posts - users can make a comment on a particular post, if the post allows comments
+   Moderating posts - certain posts can be modified by users of a specified rank, and some posts can be community-editable
+  \subsection{Operating Environment}
+  PyQ will be written in Python using the Django web framework and will live in a Unix environment running Apache with FastCGI. PyQ is meant for use on the web.
+   \subsection{Design and Implementation Constraints}
+   PyQ will at first work with the PostgreSQL database. It is unknown at this time whether other databases and web servers will be supported. IE7 and below will not be supported, as well as most browsers older than IE7.
+   \subsection{User Documentation}
+   It is unknown whether any user documentation will exist in the future.
+   \subsection{Assumptions and Dependencies}
+   None
+  \section{System Features}
+  \section{External Interface Requirements}
+   \subsection{User Interfaces}
+   Common GUI standards will be listed here as they are decided.
+   \subsection{Hardware Interfaces}
+   \textit{N/A}
+   \subsection{Software Interfaces}
+   \textit{N/A}
+   \subsection{Communication Interfaces}
+   As PyQ is a web application, the Hypertext Transfer Protocol (HTTP) will be the dominant communication interface in use.
+  \section{Other Non-functional Requirements}
+   \subsection{Performance Requirements}
+   PyQ should perform in a reasonable amount of time for whatever website is it employed with. Web pages should load at most within a few seconds.
+   \subsection{Safety Requirements}
+   Users should not be able to log onto other accounts without knowing the other accounts' security credentials. Users of a lower rank should not have access to tools that higher ranking users have. The database will be secure against SQL injection attacks and from database tampering by unauthorised users.
+   \subsection{Software Quality Attributes}
+   Adaptability will be a key quality attribute for the PyQ system. Robustness and high usability will be two other major goals of the system.
+  \section{Other Requirements}
+   \subsection{Database Requirements}
+   The initial release of PyQ will use a PostgreSQL database. There may be support for other databases in the future.
+   \subsection{Reuse Objectives}
+   PyQ will try to act more as a framework than a solid implmentation. As such, the goal will be for PyQ to be fully customizable for a variety of different projects.
+  \section*{Appendix A: Glossary}
+  \section*{Appendix B: Analysis Models}
+  \textit{N/A}
+  \section*{Appendix C: Issues List}
+  \textit{TBD}
+\end{document}
